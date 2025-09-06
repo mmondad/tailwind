@@ -1,16 +1,17 @@
-let block = document.getElementById('block');
-let content = document.getElementById('content');
-let after = document.getElementById('after');
-let before = document.getElementById('before');
-let inside = document.getElementById('inside');
+let open = document.getElementById('open');
+let close = document.getElementById('close');
+let container = document.getElementsByClassName('container')[0];
 
+close.onclick = function(){
+    close.classList.add('hide');
+    container.classList.add('hide');
+    open.classList.remove('hide');
+}
 
-block.style.backgroundColor = 'red';
-block.style.height = '100px';
-block.style.marginTop = "20px";
-
-
-            /* events */
-after.onclick = _ => block.after(content);            
-before.onclick = _ => block.before(content);
-inside.onclick = _ => block.append(content);
+open.onclick = function ()
+{
+    open.classList.add('hide');
+    container.classList.remove('hide');
+    close.classList.remove('hide');
+    
+}
