@@ -1,10 +1,12 @@
-let count = 0;
+let red = document.getElementById('red');
+let blue = document.getElementById('blue');
+let yellow = document.getElementById('yellow');
+let black = document.getElementById('black');
 
-let val = setInterval(() => {
-    console.log(count++);
-    if (count > 5)
-        clearInterval(val);
-}, 1000);
+if (localStorage.length > 0)
+        document.body.style.background = localStorage.background;
 
-console.log('hello hamid')
-
+red.onclick  = _ =>localStorage.background = document.body.style.background = 'red';
+blue.onclick  = _ => localStorage.background = document.body.style.background = 'blue';
+yellow.onclick  = _ => localStorage.background = document.body.style.background = 'yellow';
+black.onclick  = _ => localStorage.background = document.body.style.background = 'black';
