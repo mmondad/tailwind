@@ -37,7 +37,13 @@ submit.onclick = function() {
 		count: count.value,
 		category: category.value,    
 	}
-	products.push(newPro);
+	if (newPro.count > 1)
+	{
+		for (let i = 0; i < newPro.count; i++)
+			products.push(newPro);
+	}
+	else
+		products.push(newPro);
 	localStorage.products = JSON.stringify(products);
 	clearData();
 	showData();
@@ -79,8 +85,13 @@ function showData() {
 	}
 		tbody.innerHTML = table;
 		if (products.length > 0)
+		{
+			clear.innerHTML = `Delete all (${products.length})`;
 			clear.style.display = "block";
-}
+		}
+		else
+			clear.style.display = "none";
+	}
 
 clear.onclick = function()
 {
