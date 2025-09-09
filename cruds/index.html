@@ -8,7 +8,6 @@
     <style>
         .crud input
         {
-            /* width: 100%; */
             height: 30px;
             background: black;
             margin: 4px 0px;
@@ -34,17 +33,105 @@
         <div class="input ">
             <input class="title w-[100%]" type="text" placeholder="title">
             <div class="mony">
-                <input class="price w-[20%]" type="number" placeholder="price">
-                <input class="taxes w-[20%]" type="number" placeholder="taxes">
-                <input class="ads w-[20%]" type="number" placeholder="ads">
-                <input class="discount w-[20%]" type="number" placeholder="discount">
-                <small class="total before:content-['Total:_'] bg-red-700 p-[4px] rounded-md">2002</small>
+                <input onkeyup = "getTotal()" class="price w-[20%]" type="number" placeholder="price">
+                <input onkeyup = "getTotal()" class="taxes w-[20%]" type="number" placeholder="taxes">
+                <input onkeyup = "getTotal()" class="ads w-[20%]" type="number" placeholder="ads">
+                <input onkeyup = "getTotal()"  class="discount w-[20%]" type="number" placeholder="discount">
+                <small class="total before:content-['Total:_'] bg-red-700 p-[4px] rounded-md"></small>
             </div>
             <input class="count w-[100%]" type="number" placeholder="count">
             <input class="category w-[100%]" type="category" placeholder="category">
-            <button class="button transition-all duration-500 ease-in hover:tracking-[1px] hover:bg-green-400 w-[100%] h-[30px] cursor-pointer rounded-[5px] border-none bg-white text-black">create</button>
+            <button class="submit transition-all
+                duration-500 ease-in hover:tracking-[1px]
+                hover:bg-green-400 w-[100%] h-[30px] cursor-pointer
+                rounded-[5px] border-none bg-white
+                text-black">create
+            </button>
         </div>
-        <div class="output"></div>
+        <div class="output">
+            <div class="searchBlock w-[100%]">
+                <input type="text" class="search w-[100%]" placeholder="search">
+                <div class="btnSearch flex justify-between">
+                    <button class="byTitle transition-all
+                         duration-500 ease-in hover:tracking-[1px]
+                         hover:bg-green-400 w-[47%] h-[30px] cursor-pointer
+                         rounded-[5px] border-none bg-white
+                         text-black">search by title
+                    </button>
+                    <button class="byCategory transition-all
+                        duration-500 ease-in hover:tracking-[1px]
+                        hover:bg-green-400 w-[47%] h-[30px] cursor-pointer
+                        rounded-[5px] border-none bg-white
+                        text-black">search by category
+                    </button>
+                </div>
+            </div>
+            <table class="table w-[100%] text-center mt-[10px]">
+                <tr class="uppercase">
+                    <th>id</th>
+                    <th>title</th>
+                    <th>price</th>
+                    <th>taxes</th>
+                    <th>ads</th>
+                    <th>discount</th>
+                    <th>total</th>
+                    <th>category</th>
+                    <th>update</th>
+                    <th>delete</th>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>mobile</td>
+                        <td>2000</td>
+                        <td>100</td>
+                        <td>50</td>
+                        <td>20</td>
+                        <td>100</td>
+                        <td>electronics</td>
+                        <td><button class="update bg-green-500 p-[4px] rounded-md">update</button></td>
+                        <td><button class="delete bg-red-500 p-[4px] rounded-md">delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>mobile</td>
+                        <td>2000</td>
+                        <td>100</td>
+                        <td>50</td>
+                        <td>20</td>
+                        <td>100</td>
+                        <td>electronics</td>
+                        <td><button class="update bg-green-500 p-[4px] rounded-md">update</button></td>
+                        <td><button class="delete bg-red-500 p-[4px] rounded-md">delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>mobile</td>
+                        <td>2000</td>
+                        <td>100</td>
+                        <td>50</td>
+                        <td>20</td>
+                        <td>100</td>
+                        <td>electronics</td>
+                        <td><button class="update bg-green-500 p-[4px] rounded-md">update</button></td>
+                        <td><button class="delete bg-red-500 p-[4px] rounded-md">delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>mobile</td>
+                        <td>2000</td>
+                        <td>100</td>
+                        <td>50</td>
+                        <td>20</td>
+                        <td>100</td>
+                        <td>electronics</td>
+                        <td><button class="update bg-green-500 p-[4px] rounded-md">update</button></td>
+                        <td><button class="delete bg-red-500 p-[4px] rounded-md">delete</button></td>
+                    </tr>
+                </tbody>
+            </table> 
+
+        </div>
     </div>
     <script src="script.js"></script>
     
