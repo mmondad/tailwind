@@ -13,6 +13,7 @@ let clear = document.getElementsByClassName("clear")[0];
 let mood = 'create';
 let tmp;
 
+
 function getTotal() {
 	if (price.value != "") {
 		total.innerHTML =   (+price.value + +taxes.value + +ads.value) - +discount.value;
@@ -29,14 +30,14 @@ let products = localStorage.products ? JSON.parse(localStorage.products) : [];
 
 submit.onclick = function() {
 	let newPro = {
-		title: title.value,
+		title: title.value.toLowerCase(),
 		price: price.value,
 		taxes: taxes.value,
 		ads: ads.value,
 		discount: discount.value,
 		total: total.innerHTML,
 		count: count.value,
-		category: category.value,    
+		category: category.value.toLowerCase(),
 	}
 	if (mood === 'create')
 	{
@@ -58,7 +59,6 @@ submit.onclick = function() {
 	localStorage.products = JSON.stringify(products);
 	clearData();
 	showData();
-	console.log(products);
 }
 
 function clearData() {
@@ -154,12 +154,12 @@ search.onkeyup = function() {
 	{
 		if (searchMood === 'title')
 		{
-			if (products[i].title.includes(search.value) === true)
+			if (products[i].title.includes(search.value.toLowerCase()) === true)
 				indexs.push(i);
 		}
 		else
 		{
-			if (products[i].category.includes(search.value) === true)
+			if (products[i].category.includes(search.value.toLowerCase()) === true)
 				indexs.push(i);
 		}
 	}
@@ -181,5 +181,5 @@ search.onkeyup = function() {
 			</tr>
 		`
 	}
-		tbody.innerHTML = table;
+	tbody.innerHTML = table;
 }
