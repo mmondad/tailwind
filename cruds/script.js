@@ -74,7 +74,6 @@ function clearData() {
 
 showData();
 
-
 function showData() {
 	getTotal();
 	let table = "";
@@ -150,15 +149,37 @@ function setSearchMood(Smood)
 }
 
 search.onkeyup = function() {
+	let indexs = [];
 	for(let i = 0; i < products.length;i++)
 	{
 		if (searchMood === 'title')
 		{
 			if (products[i].title.includes(search.value) === true)
-				console.log('true');
+				indexs.push(i);
 		}
 		else
-			console.log('false');
+		{
+			if (products[i].category.includes(search.value) === true)
+				indexs.push(i);
+		}
 	}
-
+	let table = "";
+	for (let i = 0; i < indexs.length; i++) {
+		table += 
+		`
+			<tr>
+				<td>${i}</td>
+				<td>${products[indexs[i]].title}</td>
+				<td>${products[indexs[i]].price}</td>
+				<td>${products[indexs[i]].taxes}</td>
+				<td>${products[indexs[i]].ads}</td>
+				<td>${products[indexs[i]].discount}</td>
+				<td>${products[indexs[i]].total}</td>
+				<td>${products[indexs[i]].category}</td>
+				<td><button onclick="updateProduct(${indexs[i]})" class="update bg-green-500 p-[4px] rounded-md">update</button></td>
+				<td><button onclick="deleteProduct(${indexs[i]})" class="delete bg-red-500 p-[4px] rounded-md">delete</button></td>
+			</tr>
+		`
+	}
+		tbody.innerHTML = table;
 }
