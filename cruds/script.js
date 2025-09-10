@@ -10,7 +10,8 @@ let submit = document.getElementsByClassName("submit")[0];
 let tbody = document.getElementsByClassName("tbody")[0];
 let clear = document.getElementsByClassName("clear")[0];
 
-
+let mood = 'create';
+let tmp;
 
 function getTotal() {
 	if (price.value != "") {
@@ -37,13 +38,23 @@ submit.onclick = function() {
 		count: count.value,
 		category: category.value,    
 	}
-	if (newPro.count > 1)
+	if (mood === 'create')
 	{
-		for (let i = 0; i < newPro.count; i++)
+		if (newPro.count > 1)
+		{
+			for (let i = 0; i < newPro.count; i++)
+				products.push(newPro);
+		}
+		else
 			products.push(newPro);
 	}
 	else
-		products.push(newPro);
+	{
+		products[tmp] = newPro;
+		mood = 'create';
+		submit.innerHTML = "Create";
+		count.style.display  = "block";
+	}
 	localStorage.products = JSON.stringify(products);
 	clearData();
 	showData();
@@ -65,6 +76,7 @@ showData();
 
 
 function showData() {
+	getTotal();
 	let table = "";
 	for (let i = 0; i < products.length; i++) {
 		table += 
@@ -78,7 +90,7 @@ function showData() {
 				<td>${products[i].discount}</td>
 				<td>${products[i].total}</td>
 				<td>${products[i].category}</td>
-				<td><button class="update bg-green-500 p-[4px] rounded-md">update</button></td>
+				<td><button onclick="updateProduct(${i})" class="update bg-green-500 p-[4px] rounded-md">update</button></td>
 				<td><button onclick="deleteProduct(${i})" class="delete bg-red-500 p-[4px] rounded-md">delete</button></td>
 			</tr>
 		`
@@ -105,4 +117,23 @@ function deleteProduct(i)
 	products.splice(i, 1);
 	localStorage.products = JSON.stringify(products);
 	showData();
+}
+
+function updateProduct(i)
+{
+	title.value = products[i].title;
+	price.value = products[i].price;
+	taxes.value = products[i].taxes;
+	ads.value = products[i].ads;
+	discount.value = products[i].discount;
+	getTotal();
+	count.style.display  = "none";
+	category.value = products[i].category;
+	submit.innerHTML = "Update";
+	mood = "update";
+	tmp = i;
+	scroll({
+		top: 0,
+		behavior: "smooth",
+	})
 }
