@@ -29,6 +29,8 @@ function getTotal() {
 let products = localStorage.products ? JSON.parse(localStorage.products) : [];
 
 submit.onclick = function() {
+	if (title.value == "" || price.value == "" || category.value == "" || count.value > 100)
+		return ;
 	let newPro = {
 		title: title.value.toLowerCase(),
 		price: price.value,
@@ -142,10 +144,11 @@ let search = document.getElementsByClassName("search")[0];
 
 function setSearchMood(Smood)
 {
+	searchMood = Smood;
 	search.focus();
 	search.placeholder = 'search by ' + searchMood;
 	search.value = "";
-	searchMood = Smood;
+	showData();
 }
 
 search.onkeyup = function() {
