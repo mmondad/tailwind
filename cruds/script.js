@@ -137,3 +137,28 @@ function updateProduct(i)
 		behavior: "smooth",
 	})
 }
+
+let searchMood = 'title';
+let search = document.getElementsByClassName("search")[0];
+
+function setSearchMood(Smood)
+{
+	search.focus();
+	search.placeholder = 'search by ' + searchMood;
+	search.value = "";
+	searchMood = Smood;
+}
+
+search.onkeyup = function() {
+	for(let i = 0; i < products.length;i++)
+	{
+		if (searchMood === 'title')
+		{
+			if (products[i].title.includes(search.value) === true)
+				console.log('true');
+		}
+		else
+			console.log('false');
+	}
+
+}

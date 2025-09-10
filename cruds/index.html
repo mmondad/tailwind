@@ -1,92 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-        .crud input
-        {
-            height: 30px;
-            background: black;
-            margin: 4px 0px;
-            padding: 0 10px;
-            border: none;
-            border-radius: 4px;
-            color: white;
-        }
-        .crud input:focus
-        {
-            outline: none;
-            box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.5);/* to learn more about it */
-            scale: 1.08;
-        }
-    </style>
+	<style>
+		.crud input
+		{
+			height: 30px;
+			background: black;
+			margin: 4px 0px;
+			padding: 0 10px;
+			border: none;
+			border-radius: 4px;
+			color: white;
+		}
+		.crud input:focus
+		{
+			outline: none;
+			box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.5);/* to learn more about it */
+			scale: 1.08;
+		}
+	</style>
 </head>
 <body class="bg-[#222] text-white font-serif">
-    <div class="crud w-[80%] m-auto">
-        <div class="head text-center mt-[10px] text-xl">
-            <h1 class="font-bold">CRUD</h1>
-            <P>PRODUCT MANAGMENT SYSTEM</P>
-        </div>
-        <div class="input ">
-            <input class="title w-[100%]" type="text" placeholder="title">
-            <div class="mony">
-                <input onkeyup = "getTotal()" class="price w-[20%]" type="number" placeholder="price">
-                <input onkeyup = "getTotal()" class="taxes w-[20%]" type="number" placeholder="taxes">
-                <input onkeyup = "getTotal()" class="ads w-[20%]" type="number" placeholder="ads">
-                <input onkeyup = "getTotal()"  class="discount w-[20%]" type="number" placeholder="discount">
-                <small class="total before:content-['Total:_'] bg-red-700 p-[4px] rounded-md"></small>
-            </div>
-            <input class="count w-[100%]" type="number" placeholder="count">
-            <input class="category w-[100%]" type="category" placeholder="category">
-            <button class="submit transition-all
-                duration-500 ease-in hover:tracking-[1px]
-                hover:bg-green-400 w-[100%] h-[30px] cursor-pointer
-                rounded-[5px] border-none bg-white
-                text-black">create
-            </button>
-        </div>
-        <div class="output">
-            <div class="searchBlock w-[100%]">
-                <input type="text" class="search w-[100%]" placeholder="search">
-                <div class="btnSearch flex justify-between">
-                    <button class="byTitle transition-all
-                         duration-500 ease-in hover:tracking-[1px]
-                         hover:bg-green-400 w-[47%] h-[30px] cursor-pointer
-                         rounded-[5px] border-none bg-white
-                         text-black">search by title
-                    </button>
-                    <button class="byCategory transition-all
-                        duration-500 ease-in hover:tracking-[1px]
-                        hover:bg-green-400 w-[47%] h-[30px] cursor-pointer
-                        rounded-[5px] border-none bg-white
-                        text-black">search by category
-                    </button>
-                </div>
-            </div>
-            <button class="clear bg-red-500 text-black w-[100%] h-[30px] rounded-[5px] mt-[10px] hidden">Delete all</button>
-            <table class="table w-[100%] text-center mt-[10px]">
-                <tr class="uppercase">
-                    <th>id</th>
-                    <th>title</th>
-                    <th>price</th>
-                    <th>taxes</th>
-                    <th>ads</th>
-                    <th>discount</th>
-                    <th>total</th>
-                    <th>category</th>
-                    <th>update</th>
-                    <th>delete</th>
-                </tr>
-                <tbody class="tbody"></tbody>
-            </table> 
+	<div class="crud w-[80%] m-auto">
+		<div class="head text-center mt-[10px] text-xl">
+			<h1 class="font-bold">CRUD</h1>
+			<P>PRODUCT MANAGMENT SYSTEM</P>
+		</div>
+		<div class="input ">
+			<input class="title w-[100%]" type="text" placeholder="title">
+			<div class="mony">
+				<input onkeyup = "getTotal()" class="price w-[20%]" type="number" placeholder="price">
+				<input onkeyup = "getTotal()" class="taxes w-[20%]" type="number" placeholder="taxes">
+				<input onkeyup = "getTotal()" class="ads w-[20%]" type="number" placeholder="ads">
+				<input onkeyup = "getTotal()"  class="discount w-[20%]" type="number" placeholder="discount">
+				<small class="total before:content-['Total:_'] bg-red-700 p-[4px] rounded-md"></small>
+			</div>
+			<input class="count w-[100%]" type="number" placeholder="count">
+			<input class="category w-[100%]" type="category" placeholder="category">
+			<button class="submit transition-all
+				duration-500 ease-in hover:tracking-[1px]
+				hover:bg-green-400 w-[100%] h-[30px] cursor-pointer
+				rounded-[5px] border-none bg-white
+				text-black">create
+			</button>
+		</div>
+		<div class="output">
+			<div class="searchBlock w-[100%]">
+				<input type="text" class="search w-[100%]" placeholder="search">
+				<div class="btnSearch flex justify-between">
+					<button onclick = "setSearchMood('title')"  class="byTitle transition-all
+						 duration-500 ease-in hover:tracking-[1px]
+						 hover:bg-green-400 w-[47%] h-[30px] cursor-pointer
+						 rounded-[5px] border-none bg-white
+						 text-black">search by title
+					</button>
+					<button  onclick = "setSearchMood('category')" class="byCategory transition-all
+						duration-500 ease-in hover:tracking-[1px]
+						hover:bg-green-400 w-[47%] h-[30px] cursor-pointer
+						rounded-[5px] border-none bg-white
+						text-black">search by category
+					</button>
+				</div>
+			</div>
+			<button class="clear bg-red-500 text-black w-[100%] h-[30px] rounded-[5px] mt-[10px] hidden">Delete all</button>
+			<table class="table w-[100%] text-center mt-[10px]">
+				<tr class="uppercase">
+					<th>id</th>
+					<th>title</th>
+					<th>price</th>
+					<th>taxes</th>
+					<th>ads</th>
+					<th>discount</th>
+					<th>total</th>
+					<th>category</th>
+					<th>update</th>
+					<th>delete</th>
+				</tr>
+				<tbody class="tbody"></tbody>
+			</table> 
 
-        </div>
-    </div>
-    <script src="script.js"></script>
-    
-    
+		</div>
+	</div>
+	<script src="script.js"></script>
+	
+	
 </body>
 </html>
