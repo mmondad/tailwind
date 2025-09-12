@@ -17,17 +17,21 @@
 	<div class="header p-[20px] ">
 		<div class="container flex justify-between items-center md:w-[750px] lg:w-[1970px] text-blue-500 px-[15px] mx-auto">
 			<img class="logo w-[60px]" src="images/logo.png" alt="logo" >
-			<div class="links relative group">
+			<div class="links relative group ">
 				<span class="icon flex flex-wrap w-[30px] justify-end">
 					<span class="s1 bg-black w-[100%] h-[2px] mb-[4px]"></span>
 					<span class="s2 bg-black w-[60%] h-[2px]  mb-[4px] transition-all duration-500 group-hover:w-[100%]"></span>
 					<span class="s3 bg-black w-[100%] h-[2px] mb-[4px]"></span>
 				</span>
-				<ul class="list ">
-					<li><a href="#Services">Services</a></li>
-					<li><a href="#Portfolio">Portfolio</a></li>
-					<li><a href="#About">About</a></li>
-					<li><a href="#contact">contact</a></li>
+				<ul class="list absolute text-[#333] bg-slate-200 right-0 min-w-[200px] top-[calc(100%+15px)]
+        			  group-hover:opacity-100 group-hover:visible
+        		   	transition-all duration-1000 before:content-[''] before:absolute before:right-[5px]
+				   	before:top-[-20px] before:border-[10px] before:border-solid before:border-t-transparent
+					before:border-r-transparent before:border-b-bg-slate-200 before:border-l-transparent">
+					<li><a class="block pl-[15px] my-[10px] transition-all duration-500 hover:pl-[25px]" href="#Services">Services</a></li>
+					<li><a class="block pl-[15px] my-[10px] transition-all duration-500 hover:pl-[25px]" href="#Portfolio">Portfolio</a></li>
+					<li><a class="block pl-[15px] my-[10px] transition-all duration-500 hover:pl-[25px]" href="#About">About</a></li>
+					<li><a class="block pl-[15px] my-[10px] transition-all duration-500 hover:pl-[25px]" href="#contact">contact</a></li>
 				</ul>
 			</div>
 		</div>
