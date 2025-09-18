@@ -23,8 +23,6 @@ function element(name_param, age_param)
     card.style.margin = "10px";
     card.style.padding = "20px"
     card.style.display = "inline-block";
-    
-
 
     card.appendChild(name);
     card.appendChild(age);
@@ -32,9 +30,6 @@ function element(name_param, age_param)
     return card;
 }
 
-
 for(let i = 0; i  < 20;i++)
     container.appendChild(element("simo", "23"));
-
-
 console.log(document.body);
